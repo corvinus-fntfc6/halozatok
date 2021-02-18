@@ -8,7 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace HajosTeszt
+namespace masodik_het_fntfc6
 {
     public class Startup
     {
@@ -25,18 +25,16 @@ namespace HajosTeszt
             {
                 app.UseDeveloperExceptionPage();
             }
-            app.UseHttpsRedirection();
-            app.UseDefaultFiles();
-            app.UseDefaultFiles();
+
             app.UseRouting();
 
-            //app.UseEndpoints(endpoints =>
-            //{
-                //endpoints.MapGet("/", async context =>
-                //{
-                   // await context.Response.WriteAsync("Hello World!");
-                //});
-            //});
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapGet("/", async context =>
+                {
+                    await context.Response.WriteAsync("Hello World!");
+                });
+            });
         }
     }
 }
