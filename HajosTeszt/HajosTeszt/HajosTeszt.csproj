@@ -26,4 +26,9 @@
     <_WebToolingArtifacts Remove="Properties\NewFolder\**" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Remove="wwwroot\pascal1.css" />
+    <Content Remove="wwwroot\szorzo.cs" />
+  </ItemGroup>
+
 </Project>
