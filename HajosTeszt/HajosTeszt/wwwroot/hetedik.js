@@ -24,3 +24,16 @@ function kerdesMegjelenites(kérdés) {
         ide_kérdés.appendChild(elem_kérdés)
     }
 }
+
+function kerdesBetoltes(id) {
+    fetch(`/questions/${id}`)
+        .then(response => {
+            if (!response.ok) {
+                console.error(`Hibás válasz: ${response.status}`)
+            }
+            else {
+                return response.json()
+            }
+        })
+        .then(data => kerdesMegjelenites(data));
+}
