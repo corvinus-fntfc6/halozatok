@@ -25,15 +25,35 @@ function kerdesMegjelenites(kérdés) {
     }
 }
 
-function kerdesBetoltes(id) {
-    fetch(`/questions/${id}`)
-        .then(response => {
-            if (!response.ok) {
-                console.error(`Hibás válasz: ${response.status}`)
+function kerdesBetoltes(questionNumber, destination) {
+    fetch(`/questions/${questionNumber}`)
+        .then(
+            result => {
+                if (!result.ok) {
+                    console.error(`Hibás letöltés: ${response.status}`)
+                }
+                else {
+                    return result.json()
+                }
+            })
+        .then(
+            q => {
+                hotList[destination].question = q;
+                hotList[destination].goodAnswers = 0;
+                console.log(`A ${questionNumber}. kérdés letöltbe a hot list ${destination}. helyére`)
+                if (displayedQuestion == undefined && destination==0) {
+                    displayedQuestion = 0;
+                    kerdesMegjelenites();
+                }
             }
-            else {
-                return response.json()
-            }
-        })
-        .then(data => kerdesMegjelenites(data));
+
+    );
+}
+
+function elore() {
+    displayedQuestion++;
+    if (displayedQuestion == questionsInHotList) {
+        displayedQuestion = 0;
+        kerdesMegjelenites();
+    }
 }

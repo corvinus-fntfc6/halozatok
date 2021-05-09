@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <title></title>
-    <script src="hetedik.js"></script>
+    <script src="tizedik.js"></script>
 </head>
 <body>
     <div id="külső">
@@ -15,6 +15,7 @@
         <style>
             html, body {
                 height: 100%;
+                margin:0;
             }
 
             div {
@@ -70,7 +71,14 @@
                 background-color: ghostwhite;
             }
 
+            .gomb:hover{
+                background-color: fuchsia;
+                color:white;
+            }
+
             .kerdes {
+                padding:10px;
+                border-radius:10px;
             }
 
             .kattintható:hover{
@@ -80,28 +88,41 @@
             .kattintható{
 
             }
-            #jó{
+            .jó{
                 background-color:springgreen;
             }
-            #rossz{
+            .rossz{
                 background-color:tomato;
+            }
+
+            .rejtett{
+                display: none;
+            }
+            @media only screen and (max-width: 600px){
+                body{
+                    background-color:lightgray;
+                }
+
+                #középső{
+                    flex-direction:column;
+                }
             }
         </style>
 
 
         <div id="középső">
             <div id="válaszok">
-                <div id="válasz1" class="kerdes kattintható">Válasz 1</div>
-                <div id="válasz2" class="kerdes kattintható jó">Válasz 2</div>
-                <div id="válasz3" class="kerdes kattintható rossz">Válasz 3</div>
+                <div id="válasz1" onclick="választás(1)" class="kerdes kattintható">Válasz 1</div>
+                <div id="válasz2" onclick="választás(2)" class="kerdes kattintható jó">Válasz 2</div>
+                <div id="válasz3" onclick="választás(3)" class="kerdes kattintható rossz">Válasz 3</div>
             </div>
             <div id="kép">
                 <img id="kép1" src="https://szoft1.comeback.hu/hajo/teszt-0050.jpg" />
             </div>
         </div>
         <div id="vezérlő">
-            <div class="gomb kattintható">Vissza</div>
-            <div class="gomb kattintható">Előre</div>
+            <div id="vissza_gomb" class="gomb kattintható">Vissza</div>
+            <div id="előre_gomb" class="gomb kattintható">Előre</div>
         </div>
 
     </div>
